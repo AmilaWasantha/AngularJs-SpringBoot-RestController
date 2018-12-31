@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="ISO-8859-1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Main Page</title>
+</head>
+
+<body ng-app="myApp" class="ng-cloak">
+<div class="generic-container" ng-controller="UserController as ctrl">
+  <div class="panel panel-default">
+    <div class="panel-heading"><span class="lead">User Registration Form </span></div>
+    <br>
+    <div class="formcontainer">
+      <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+        <div class="row">
+          <div class="form-group col-md-12">
+          <label class="col-md-2 control-lable" >&nbsp;&nbsp;&nbsp;&nbsp;User Id</label>
+          <div class="col-md-7">
+            <input type="text" placeholder="Enter Your Id" ng-model="ctrl.user.id" /> &nbsp;&nbsp;&nbsp;<button type="button" ng-click="ctrl.findById(ctrl.user.id)" class="btn btn-danger">Find BY Id</button>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            &nbsp;&nbsp;&nbsp;&nbsp;<label class="col-md-2 control-lable" >&nbsp;&nbsp;&nbsp;&nbsp;Name</label>
+            <div class="col-md-7">
+              <input type="text" ng-model="ctrl.user.name" name="uname" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label class="col-md-2 control-lable">&nbsp;&nbsp;&nbsp;&nbsp;Address</label>
+            <div class="col-md-7">
+              <input type="text" ng-model="ctrl.user.address" class="form-control input-sm" placeholder="Enter your Address."/>
+            </div>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="form-actions floatRight">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit"  value="save User" class="btn btn-primary"> &nbsp;&nbsp;<button type="button"  ng-click="ctrl.updateUser(ctrl.user)" class="btn btn-success">Update User</button>
+            <!--<button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>-->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><span class="lead">List of Users </span></div>
+    <div class="tablecontainer">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>ID.</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th width="20%"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="u in ctrl.users">
+          <td><span ng-bind="u.id"></span></td>
+          <td><span ng-bind="u.name"></span></td>
+          <td><span ng-bind="u.address"></span></td>
+          <td>
+            <button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+    <!-- Default panel contents -->
+
+</div>
+
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="controllers/UserController.js"></script>
+<script src="view2/view2.js"></script>
+<script src="core/version/version.js"></script>
+<script src="core/version/version-directive.js"></script>
+<script src="core/version/interpolate-filter.js"></script>
+<script src="services/UserService.js"></script>
+
+
+</body>
+
+
+
+</html>

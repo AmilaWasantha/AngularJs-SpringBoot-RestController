@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="modern-pos:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="modern-pos-1.0.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="modern-pos:war exploded" />
+    </root>
+  </artifact>
+</component>
